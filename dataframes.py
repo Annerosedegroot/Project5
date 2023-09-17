@@ -6,10 +6,6 @@ data_transdev = "Connexxion data - 2023-2024.xlsx" #contains 2 sheets: 'Dienstre
 omloopplanning = "omloop planning.xlsx" #contains 1 sheet, columns: 'startlocatie', 'eindlocatie', 'starttijd',	'eindtijd',	'activiteit', 
                                          #'buslijn', 'energieverbruik', 'starttijd datum', 'eindtijd datum', 'omloop nummer'
 
-# Input file names, change later to input dropbox
-data_transdev = "Connexxion data - 2023-2024.xlsx"
-omloopplanning = "omloop planning.xlsx"
-
 # Read Excel file into a DataFrame
 df_data = pd.read_excel(omloopplanning)
 
