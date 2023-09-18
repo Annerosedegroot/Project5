@@ -2,6 +2,11 @@ import pandas as pd
 import streamlit as st
 
 def check_buslijn_column(df):
+    """
+    function checks whether all variables in column 'buslijn' are either 400, 401 or empty  
+    arg: dataframe, excel
+    output: all warnings if value is not 400, 401 of empty
+    """
     # Initialize a list to store warning messages and row numbers
     warnings = []
 
@@ -15,7 +20,7 @@ def check_buslijn_column(df):
             buslijn != 'nan'):
             warnings.append(f"Row {index + 1}: Unexpected value in 'buslijn' column: {buslijn}")
 
-    # Display warnings in Streamlit
+    # Display warnings in Streamlit these need to go in the list with all other wanring sand errors generated from the data/
     if warnings:
         st.warning("Warning: Found unexpected values in 'buslijn' column:")
         for warning in warnings:
