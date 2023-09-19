@@ -1,7 +1,7 @@
 import pandas as pd
 import streamlit as st
 
-def check_buslijn_column(df):
+def check_buslijn(df):
     """
     function checks whether all variables in column 'buslijn' are either 400, 401 or empty  
     arg: dataframe, excel
@@ -28,9 +28,9 @@ def check_buslijn_column(df):
     else:
         st.success("No unexpected values found in 'buslijn' column.")
 
-uploaded = "omloop planning.xlsx" 
+# uploaded = "omloop planning.xlsx" 
 
-if uploaded is not None:
-    df = pd.read_excel(uploaded)  # Load the Excel file into a DataFrame
-    df['buslijn'] = df['buslijn'].astype(float).fillna(0).astype(int)
-    check_buslijn_column(df)  # Pass the DataFrame to the function
+# if uploaded is not None:
+#     df = pd.read_excel(uploaded)  # Load the Excel file into a DataFrame
+#     df['buslijn'] = df['buslijn'].astype(float).fillna(0).astype(int)
+#     check_buslijn(df)  # Pass the DataFrame to the function
