@@ -10,7 +10,7 @@ st.title("Project 5: Check the planning")
 upload = st.file_uploader("Choose an Excel file", type='xlsx')
 
 if upload is not None:
-    df = pd.read_excel(upload, usecols= ['startlocatie', 'eindlocatie', 'starttijd',	'eindtijd',	'activiteit', 'buslijn', 'energieverbruik', 'starttijd datum', 'eindtijd datum', 'omloop nummer'])
+    df = pd.read_excel(upload, usecols= ['startlocatie', 'eindlocatie', 'starttijd', 'eindtijd',	'activiteit', 'buslijn', 'energieverbruik', 'starttijd datum', 'eindtijd datum', 'omloop nummer'])
     st.table(df)
 
 # Lay-out app: sidebar
