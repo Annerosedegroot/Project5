@@ -2,7 +2,6 @@ import pandas as pd
 import streamlit as st
 
 def omloopnummer(df):
-    try:
         # Controleer of de maximale waarde in de kolom kleiner dan of gelijk aan 20 is
         max_waarde = df['omloopnummer'].max()
 
