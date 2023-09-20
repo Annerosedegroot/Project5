@@ -5,6 +5,8 @@ import streamlit as st  # For creating a web application
 from Format_excel_checks import formatcheck
 from buslijn_check import check_buslijn
 from activiteit_check import check_activiteit
+from max_omloop_nummer import omloopnummer
+from Datum_check import datum_check
 
 # Set the title of the web application
 st.title("Project 5: Check the planning")
@@ -17,6 +19,8 @@ if inputfile is not None:
     df['buslijn'] = df['buslijn'].astype(float).fillna(0).astype(int)
     check_buslijn(df)  #check buslijn
     check_activiteit(df) #check áctiviteit
+    omloopnummer(df)
+    datum_check(df)
 # Lay-out app: sidebar
 add_selectbox = st.sidebar.selectbox(
     "How would you like to be contacted?",
