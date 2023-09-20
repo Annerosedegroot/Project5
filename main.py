@@ -7,6 +7,7 @@ from buslijn_check import check_buslijn
 from activiteit_check import check_activiteit
 from max_omloop_nummer import omloopnummer
 from Datum_check import datum_check
+from datatype_check import controleer_datatypes
 
 # Set the title of the web application
 st.title("Project 5: Check the planning")
@@ -21,6 +22,7 @@ if inputfile is not None:
     check_activiteit(df) #check áctiviteit
     omloopnummer(df)
     datum_check(df)
+    controleer_datatypes(df)
 # Lay-out app: sidebar
 add_selectbox = st.sidebar.selectbox(
     "How would you like to be contacted?",
