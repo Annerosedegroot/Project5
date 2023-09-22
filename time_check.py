@@ -8,7 +8,18 @@ import streamlit as st
 
 # Function
 def check_time_no_difference(df):
-    
+    """
+    Check for zero time difference between start and end times in a DataFrame.
+
+    Parameters:
+    df (pd.DataFrame): A DataFrame containing 'starttijd' and 'eindtijd' columns
+                       representing the start and end times of events.
+
+    Returns:
+    None: The function prints warnings for rows with zero time difference and
+          a success message if no such rows are found.
+
+    """
     # Make a dataframe from the starttijd and eindtijd only and call it time
     starting_time = df['starttijd']
     ending_time = df['eindtijd']
