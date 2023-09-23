@@ -2,6 +2,9 @@
 import pandas as pd
 import streamlit as st
 
+# WERKT NIET!!
+
+
 # Function
 # def sep_omloop_nr(df):
 #     for i in range(len(df['omloop nummer'])-1):
