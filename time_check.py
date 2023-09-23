@@ -48,7 +48,7 @@ def check_time_no_difference(df):
     if warnings:
         # If the difference is 0, create a warning
         st.warning(f'In the following rows {warnings}, the time difference is 0, meaning the bus does not drive')
-        #print(f'In row {index + 2}, the time difference is 0')
+        
     else:
         st.success(f'The data does not contain any busses which have a 0 minute idle time.')
         
