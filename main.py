@@ -9,6 +9,8 @@ from max_omloop_nummer import omloopnummer
 from Datum_check import datum_check
 from datatype_check import controleer_datatypes
 from time_check import check_time_no_difference
+from idle_time_fill_up import idle_time_fill_up
+from Omloop_check import check_omloop
 
 # Set the title of the web application
 st.title("Project 5: Check the planning")
@@ -25,6 +27,8 @@ if inputfile is not None:
     datum_check(df)
     controleer_datatypes(df)
     check_time_no_difference(df)
+    idle_time_fill_up(df)
+    #check_omloop(omloop_input, df) #dataframe moet nog toegevoegd worden (ofja die inputfile die de omloop bevat)
 # Lay-out app: sidebar
 add_selectbox = st.sidebar.selectbox(
     "How would you like to be contacted?",
