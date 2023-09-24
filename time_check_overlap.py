@@ -7,14 +7,21 @@ from row_switch_check import row_switch
 
 # Function
 def time_overlap_check(df):
+    
+    """
+    Checking if the bus is arriving before leaving for the next 'omloop' route.
+
+    Returns:
+        df_copy: The dataframe
+    """    
+    
+    # Create copy to check before changing original dataframe
     df_copy = row_switch(df)
     
     starting_time = df_copy['starttijd']
     ending_time = df_copy['eindtijd'].shift(periods = 1, fill_value = '00:00:00')
     time = pd.merge(starting_time, ending_time, left_index=True, right_index=True)
-    # time = time['eindtijd'].shift(periods=1, fill_value = 0)
-    # time = pd.DataFrame(time)
-    # print(time)
+
     
     # Create a list where warnings will be stored if the time difference = 0
     warnings = []
@@ -37,7 +44,11 @@ def time_overlap_check(df):
             warnings.append(index)
             
     print(warnings)
+    
+    # Make excel file of copied dataframe to check
     df_copy.to_excel("omloop planning test.xlsx")
+    
+    return df_copy
         
 
 

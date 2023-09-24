@@ -6,6 +6,11 @@ from datetime import datetime, timedelta
 
 # Function
 def row_switch(df):
+    
+    """
+    Checking if the time is in the correct order and if not, changing the data in a copied dataframe.
+    """    
+    
     time_1 = df['eindtijd']
     time_2 = df['eindtijd'].shift(periods = 2, fill_value = '00:00:00')
     time = pd.merge(time_1, time_2, left_index=True, right_index=True)
@@ -34,7 +39,7 @@ def row_switch(df):
         if i > 0:
             df_copy.iloc[i], df_copy.iloc[i-1] = df_copy.iloc[i-1], df_copy.iloc[i]
     # print(df_copy[30:40]) # Even een voorbeeld als check
-    return df_copy
+    # return df_copy
 
 
 
