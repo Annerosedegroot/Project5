@@ -43,6 +43,8 @@ def check_omloop(omloop_df, planning_df):
 
     if overeenkomende_rijen.empty:
         st.error(f"Omloop-rij die niet in de planning staat:\n{omloop_row}")
+    else:
+        st.success(f'The "omloopplanning" voldoet aan alles')
         
 
 # Roep de functie aan om de controle uit te voeren (test)
