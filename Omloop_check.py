@@ -1,4 +1,5 @@
 import pandas as pd
+import streamlit as st
 
 # Lees het 'Connexxion data - 2023-2024.xlsx' Excel-bestand, dit is de omloopplanning waar de planning aan MOET voldoen
 omloop = pd.read_excel('Connexxion data - 2023-2024.xlsx', sheet_name='Dienstregeling')
@@ -40,8 +41,9 @@ def check_omloop(omloop_df, planning_df):
             (planning_df['startlocatie'] == startlocatie1)
         ]
 
-        if overeenkomende_rijen.empty:
-            print(f"Omloop-rij die niet in de planning staat:\n{omloop_row}")
+    if overeenkomende_rijen.empty:
+        st.error(f"Omloop-rij die niet in de planning staat:\n{omloop_row}")
+        
 
 # Roep de functie aan om de controle uit te voeren (test)
 #check_omloop(omloop, planning)
