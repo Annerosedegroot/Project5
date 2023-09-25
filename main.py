@@ -10,6 +10,7 @@ from Datum_check import datum_check
 from datatype_check import controleer_datatypes
 from time_check import check_time_no_difference
 from idle_time_fill_up import idle_time_fill_up
+from Omloop_check import check_omloop
 
 # Set the title of the web application
 st.title("Project 5: Check the planning")
@@ -27,6 +28,10 @@ if inputfile is not None:
     controleer_datatypes(df)
     check_time_no_difference(df)
     idle_time_fill_up(df)
+    upload2 = st.file_uploader("Choose an Excel file 2", type='xlsx')
+    if upload2 is not None:
+        df2 = pd.read_excel(upload2, sheet_name='Dienstregeling')
+        check_omloop(df2, df) #dataframe moet nog toegevoegd worden (ofja die inputfile die de omloop bevat)
 # Lay-out app: sidebar
 add_selectbox = st.sidebar.selectbox(
     "How would you like to be contacted?",
