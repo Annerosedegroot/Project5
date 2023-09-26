@@ -18,4 +18,4 @@ def formatcheck(df):
         if columnlist[columnlist.index(i)] != df.columns[columnlist.index(i)+1]:
             st.error(f"Order of columns is not as expected.")
 
-    
+    # usecols gebruiken/ unnamed droppen (zoiets)
