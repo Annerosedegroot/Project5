@@ -18,15 +18,14 @@ def check_buslijn(df):
         if (buslijn not in ('401', '400', '', '0') and 
             not pd.isna(row['buslijn']) and 
             buslijn != 'nan'):
-            warnings.append(f"Row {index + 1}: Unexpected value in 'buslijn' column: {buslijn}")
+            warnings.append(index)
 
     # Display warnings in Streamlit these need to go in the list with all other wanring sand errors generated from the data/
     if warnings:
-        st.warning("Warning: Found unexpected values in 'buslijn' column:")
-        for warning in warnings:
-            st.write(warning)
+        st.warning(f'Warning: Found unexpected values in the column "buslijn" in the following rows: {warnings}.')
+
     else:
-        st.success("No unexpected values found in 'buslijn' column.")
+        st.success(f'No unexpected values found in the column "buslijn".')
 
 # uploaded = "omloop planning.xlsx" 
 
