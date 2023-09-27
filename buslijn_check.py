@@ -9,6 +9,7 @@ def check_buslijn(df):
     """
     # Initialize a list to store warning messages and row numbers
     warnings = []
+    df['buslijn'] = df['buslijn'].astype(float).fillna(0).astype(int)
 
     # Iterate through each row
     for index, row in df.iterrows():
