@@ -40,12 +40,12 @@ def check_omloop(omloop_df, planning_df):
             (planning_df['buslijn'] == buslijn1) &
             (planning_df['startlocatie'] == startlocatie1)
         ]
-
+        # print(overeenkomende_rijen)
     if overeenkomende_rijen.empty:
-        st.error(f"Omloop-rij die niet in de planning staat:\n{omloop_row}")
+        st.error(f"Omloop-rij die niet in de planning staat:\n{omloop_row}")   # Dit werkt niet. Hij print hier alleen de laatste row omdat dit buiten de forloop zit
     else:
         st.success(f'The "omloopplanning" voldoet aan alles')
         
 
 # Roep de functie aan om de controle uit te voeren (test)
-#check_omloop(omloop, planning)
+# check_omloop(omloop, planning)

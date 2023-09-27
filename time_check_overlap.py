@@ -43,7 +43,8 @@ def time_overlap_check(df):
         if difference != no_difference:
             warnings.append(index)
             
-    print(warnings)
+    if warnings:
+        st.warning(f'The time is incorrect in the following rows: {index}')
     
     # Make excel file of copied dataframe to check
     df_copy.to_excel("omloop planning test.xlsx")
