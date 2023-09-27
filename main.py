@@ -20,8 +20,8 @@ inputfile = st.file_uploader("Choose an Excel file", type='xlsx')
 if inputfile is not None:
     df = pd.read_excel(inputfile)
     formatcheck(df)
-    check_buslijn(df) 
     check_activiteit(df)
+    check_buslijn(df) 
     omloopnummer(df)
     datum_check(df)
     controleer_datatypes(df)
@@ -30,7 +30,7 @@ if inputfile is not None:
     upload2 = st.file_uploader("Choose an Excel file 2", type='xlsx')
     if upload2 is not None:
         df2 = pd.read_excel(upload2, sheet_name='Dienstregeling')
-        check_omloop(df2, df) #dataframe moet nog toegevoegd worden (ofja die inputfile die de omloop bevat)
+        check_omloop(df2, df) 
 # Lay-out app: sidebar
 add_selectbox = st.sidebar.selectbox(
     "How would you like to be contacted?",

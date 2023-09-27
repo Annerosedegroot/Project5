@@ -7,13 +7,18 @@ from row_switch_check import row_switch
 
 # Function
 def time_overlap_check(df):
-    
     """
-    Checking if the bus is arriving before leaving for the next 'omloop' route.
-
+    Function checks whether the bus is arriving before leaving for the next 'omloop' route.
+    
+    args:
+    ----------- 
+    df: DataFrame;
+    Works with 'omloopplanning' xlsx file 
+    
     Returns:
-        df_copy: The dataframe
-    """    
+    -----------
+    Is there a return here or was this just for testing purposes?
+    """     
     
     # Create copy to check before changing original dataframe
     df_copy = row_switch(df)

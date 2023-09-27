@@ -1,7 +1,14 @@
 import numpy as np
 def idle_time_fill_up(df):
-    """Function checks if there is a unfilled time slot, so a time slot that has not been given a categorie such as idle. 
-    If a time slot is not given any categorie it will give it the categorie idle with the belonging properties. """
+    """
+    Function checks if there is a unfilled time slot, so a time slot that has not been given a categorie such as idle. 
+    If a time slot is not given any categorie it will give it the categorie idle with the belonging properties.
+    
+    args:
+    ----------- 
+    df: DataFrame;
+    Works with 'omloopplanning' xlsx file 
+    """
     IndexUnfilledIdleTimes = [] 
     for i in range(1, len(df.index)-1):
         if df.iloc[i,4] != df.iloc[i+1,3] and df.iloc[i,10] == df.iloc[i+1,10]: #Checks if there is a empty timeslot in a busline. 

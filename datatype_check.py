@@ -1,6 +1,19 @@
 import pandas as pd
 
 def controleer_datatypes(df):
+    """
+    Function checks whether the datatype in 'startlocatie', 'eindlocatie' and 'energieverbruik' are 
+    respectively 'object', 'object' and 'float64' consistantly.
+    
+    args:
+    ----------- 
+    df: DataFrame;
+    Works with 'omloopplanning' xlsx file 
+    
+    Returns:
+    ----------
+    Succes or warning-list containing rows with anomalies
+    """
     # Controleer het datatype van de kolom 'startlocatie'
     if df['startlocatie'].dtype != 'object':
         print('Fout: De kolom "startlocatie" bevat ongeldige datatypes.')

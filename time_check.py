@@ -4,22 +4,19 @@ import numpy as np
 from datetime import datetime, date, timedelta
 import streamlit as st
 
-
-
-# Function
 def check_time_no_difference(df):
     """
-    Check for zero time difference between start and end times in a DataFrame.
-
-    Parameters:
-    df (pd.DataFrame): A DataFrame containing 'starttijd' and 'eindtijd' columns
-                       representing the start and end times of events.
-
+    Function checks for zero time difference between start and end times in a DataFrame.
+    
+    args:
+    ----------- 
+    df: DataFrame;
+    Works with 'omloopplanning' xlsx file 
+    
     Returns:
-    None: The function prints warnings for rows with zero time difference and
-          a success message if no such rows are found.
-
-    """
+    -----------
+    Succes or error-list containing rows with anomalies
+    """ 
     # Make a dataframe from the starttijd and eindtijd only and call it time
     starting_time = df['starttijd']
     ending_time = df['eindtijd']
@@ -57,8 +54,8 @@ def check_time_no_difference(df):
 
 
 # Test
-df = pd.read_excel("omloop planning.xlsx")  # Replace with your Excel file path
+#df = pd.read_excel("omloop planning.xlsx")  # Replace with your Excel file path
 
 # if uploaded is not None:
 #     df = uploaded)  # Load the Excel file into a DataFrame
-print(check_time_no_difference(df))
+#print(check_time_no_difference(df))

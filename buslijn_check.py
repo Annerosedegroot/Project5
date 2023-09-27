@@ -3,9 +3,16 @@ import streamlit as st
 
 def check_buslijn(df):
     """
-    function checks whether all variables in column 'buslijn' are either 400, 401 or empty  
-    arg: dataframe, excel
-    output: all warnings if value is not 400, 401 of empty
+    Function checks whether all variables in column 'buslijn' are either 400, 401 or empty.
+    
+    args:
+    ----------- 
+    df: DataFrame;
+    Works with 'omloopplanning' xlsx file 
+    
+    Returns:
+    -----------
+    Succes or warning-list containing rows with anomalies
     """
     # Initialize a list to store warning messages and row numbers
     warnings = []

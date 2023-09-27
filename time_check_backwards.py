@@ -8,17 +8,18 @@ from datetime import datetime, timedelta
 
 # Function
 def time_backwards(df):
-    
     """
-    Check if bus is arriving before leaving to drive the route.
+    Function checks Check whether bus is arriving before leaving to drive the route according to planning.
     
-    Parameters: 
-    df: A dataframe containing the 'starttijd datum' and 'eindtijd datum'.
+    args:
+    ----------- 
+    df: DataFrame;
+    Works with 'omloopplanning' xlsx file 
     
     Returns:
-    None: It only creates an error if needed.
-    """    
-    
+    -----------
+    None or error-list containing rows with anomalies
+    """
     starting_time = df['starttijd datum']
     ending_time = df['eindtijd datum']
     time = pd.merge(starting_time, ending_time, left_index=True, right_index=True)

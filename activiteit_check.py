@@ -3,10 +3,16 @@ import streamlit as st
 
 def check_activiteit(df):
     """
-    Function checks if 'activiteit' column only contains 'idle', 'materiaal rit', 'dienst rit' or 'opladen'.
-    arg: df
-    output: warnings if column contains unwanted value (typo)
+    Function checks if 'activiteit' column solely contains 'idle', 'materiaal rit', 'dienst rit' or 'opladen'.
     
+    args:
+    ----------- 
+    df: DataFrame;
+    Works with 'omloopplanning' xlsx file 
+    
+    Returns:
+    -----------
+    Succes or warning-list containing rows with anomalies
     """
     # Initialize a list to store warning messages and row numbers
     warnings = []

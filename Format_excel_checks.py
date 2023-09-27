@@ -1,9 +1,18 @@
 import pandas as pd
 import streamlit as st
+
 def formatcheck(df):
     """
-    Check if the columns are present.
-    Check if the order of the columns is correct. 
+    Function checks if the input file is of the correct format/contains the right columns.
+    
+    args:
+    ----------- 
+    df: DataFrame;
+    Works with 'omloopplanning' xlsx file 
+    
+    Returns:
+    -----------
+    Succes or error-list containing rows with anomalies
     """
     warnings = []
     columnlist = ["startlocatie","eindlocatie","starttijd","eindtijd","activiteit","buslijn","energieverbruik","starttijd datum","eindtijd datum","omloop nummer"] #List of all the column titles
@@ -17,5 +26,3 @@ def formatcheck(df):
     for i in columnlist: #For loop to check if the order of the columns is correct.
         if columnlist[columnlist.index(i)] != df.columns[columnlist.index(i)+1]:
             st.error(f"Order of columns is not as expected.")
-
-    # usecols gebruiken/ unnamed droppen (zoiets)
