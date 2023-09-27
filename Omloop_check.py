@@ -26,6 +26,7 @@ def check_omloop(omloop_df, planning_df):
     or the row, time and place of the omloop_df that's not in planning_df
     
     """
+    errors = []
     for index, omloop_row in omloop_df.iterrows():
         vertrektijd1 = omloop_row['vertrektijd']
         buslijn1 = omloop_row['buslijn']
@@ -41,10 +42,15 @@ def check_omloop(omloop_df, planning_df):
             (planning_df['startlocatie'] == startlocatie1)
         ]
         # print(overeenkomende_rijen)
-    if overeenkomende_rijen.empty:
-        st.error(f"Omloop-rij die niet in de planning staat:\n{omloop_row}")   # Dit werkt niet. Hij print hier alleen de laatste row omdat dit buiten de forloop zit
+        if overeenkomende_rijen.empty:
+            errors.append(omloop_row)  # Add the row to the errors list
+    
+    if errors:
+        st.error("Omloop-rijen die niet in de planning staan:")
+        for error_row in errors:
+            st.error(error_row)  # Display each error row
     else:
-        st.success(f'The "omloopplanning" voldoet aan alles')
+        st.success('The "omloopplanning" voldoet aan alles')
         
 
 # Roep de functie aan om de controle uit te voeren (test)
