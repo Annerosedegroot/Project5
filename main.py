@@ -20,7 +20,7 @@ inputfile = st.file_uploader("Choose an Excel file", type='xlsx')
 if inputfile is not None:
     df = pd.read_excel(inputfile)
     formatcheck(df)
-    df['buslijn'] = df['buslijn'].astype(float).fillna(0).astype(int)
+    #df['buslijn'] = df['buslijn'].astype(float).fillna(0).astype(int)
     check_buslijn(df)  #check buslijn
     check_activiteit(df) #check áctiviteit
     omloopnummer(df)
