@@ -15,13 +15,13 @@ from Omloop_check import check_omloop
 # Set the title of the web application
 st.title("Project 5: Check the planning")
 
-# Planning in app zetten
+#Input file 'planning' and 'Connexxion data', and check if 'planning' meets requirements
 inputfile = st.file_uploader("Choose an Excel file", type='xlsx')
 if inputfile is not None:
     df = pd.read_excel(inputfile)
     formatcheck(df)
-    check_buslijn(df)  #check buslijn
-    check_activiteit(df) #check áctiviteit
+    check_buslijn(df) 
+    check_activiteit(df)
     omloopnummer(df)
     datum_check(df)
     controleer_datatypes(df)
