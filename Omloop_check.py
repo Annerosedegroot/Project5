@@ -41,7 +41,8 @@ def check_omloop(omloop_df, planning_df):
             (planning_df['buslijn'] == buslijn1) &
             (planning_df['startlocatie'] == startlocatie1)
         ]
-        # print(overeenkomende_rijen)
+        print(overeenkomende_rijen)
+        
         if overeenkomende_rijen.empty:
             errors.append(omloop_row)  # Add the row to the errors list
     
@@ -54,4 +55,4 @@ def check_omloop(omloop_df, planning_df):
         
 
 # Roep de functie aan om de controle uit te voeren (test)
-# check_omloop(omloop, planning)
+check_omloop(omloop, planning)
