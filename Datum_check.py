@@ -1,29 +1,25 @@
 import pandas as pd
 import streamlit as st
-
+        
 def datum_check(df):
     """
-    Function checks if the date in 'starttijd datum' is of format %Y:%M:%D and the time in the form %H:%M:%S.
+    Function checks if the date is in the form %Y:%M:%D and the time in the form %H:%M:%S.
+    arg: df
+    output: warnings if column contains unwanted value (typo)
+    """ 
     
-    args:
-    ----------- 
-    df: DataFrame;
-    Works with 'omloopplanning' xlsx file 
+    starttijd_datum = pd.to_datetime(df['starttijd datum'], format='%Y/%m/%d %H:%M:%S', exact=True)
+    eindtijd_datum = pd.to_datetime(df['eindtijd datum'], format='%Y/%m/%d %H:%M:%S', exact=True)
     
-    Returns:
-    -----------
-    Succes or error-list containing rows with anomalies
-    """
-    try:
-        # Check if the starting date and time is in the correct form
-        df['starttijd datum'] = pd.to_datetime(df['starttijd datum'], format='%Y/%M/%D /%H/%M/%S', errors='coerce') # 'errors=coerce' ignores incorrect dates
+    starttijd = pd.to_datetime(df['starttijd'], format='%H:%M:%S', exact=True)
+    eindtijd = pd.to_datetime(df['eindtijd'], format='%H:%M:%S', exact=True)
+    
+    return starttijd_datum, eindtijd_datum, starttijd, eindtijd
 
-        # Check if there are incorrect dates/times
-        if df['starttijd datum'].isnull().any():
-            st.warning(f"Fout: There are incorrect dates or times '{'starttijd datum'}'.")
-        else:
-            st.success("The date and time is correct.")
+        
+# Test
+df = pd.read_excel("omloop planning.xlsx")  # Replace with your Excel file path
 
-    except Exception as e:
-        st.error(f"There is a mistake: {e}")
-
+# if uploaded is not None:
+#     df = uploaded)  # Load the Excel file into a DataFrame
+datum_check(df)
