@@ -37,6 +37,6 @@ def sep_omloop_nr(df):
 
 # Test
 
-df = pd.read_excel("omloop planning.xlsx")  # Replace with your Excel file path
+#df = pd.read_excel("omloop planning.xlsx")  # Replace with your Excel file path
 
-print(sep_omloop_nr(df))
+#print(sep_omloop_nr(df))

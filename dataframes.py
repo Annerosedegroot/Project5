@@ -1,3 +1,5 @@
+#dit file wordt (nog) niet gebruikt
+
 import pandas as pd
 from datetime import timedelta, datetime
 

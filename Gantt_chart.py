@@ -1,6 +1,19 @@
 import plotly.express as px
 import pandas as pd
+
 def Gantt_chart(df):
+    """
+    Function creates a Gantt chart based on the inputfile.
+    
+    args:
+    ----------- 
+    df: DataFrame;
+    Works with 'omloopplanning' xlsx file 
+    
+    Returns:
+    ----------
+    Gantt chart
+    """
     colors = {"materiaal rit":"darkorange", "dienst rit":"dodgerblue", "idle":"red", "opladen":"lime"} #Colors for the different boxes in the Gantt chart
 
     y_label = {'omloop nummer':'Circulation number'}

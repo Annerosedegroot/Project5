@@ -3,10 +3,16 @@ import streamlit as st
 
 def check_activiteit(df):
     """
-    Function checks if 'activiteit' column only contains 'idle', 'materiaal rit', 'dienst rit' or 'opladen'.
-    arg: df
-    output: warnings if column contains unwanted value (typo)
+    Function checks if 'activiteit' column solely contains 'idle', 'materiaal rit', 'dienst rit' or 'opladen'.
     
+    args:
+    ----------- 
+    df: DataFrame;
+    Works with 'omloopplanning' xlsx file 
+    
+    Returns:
+    -----------
+    Succes or warning-list containing rows with anomalies
     """
     # Initialize a list to store warning messages and row numbers
     warnings = []
@@ -20,18 +26,17 @@ def check_activiteit(df):
 
         # Check if the 'activiteit' value is not one of the allowed values
         if activiteit not in allowed_values:
-            warnings.append(f"Row {index + 2}: Unexpected value in 'activiteit' column: {activiteit}")
+            warnings.append(index)
 
     # Display warnings in Streamlit
     if warnings:
-        st.warning("Warning: Found unexpected values in 'activiteit' column:")
-        for warning in warnings:
-            st.write(warning)
+        st.warning(f'Warning: The following rows contain unexpected data: {warnings}.')
+        
     else:
-        st.success("No unexpected values found in 'activiteit' column.")
+        st.success(f'No unexpected values found in the column "activiteit".')
 
-# uploaded = "omloop_planning.xlsx"  # Replace with your Excel file path
+# uploaded = "omloop planning.xlsx"  # Replace with your Excel file path
 
 # if uploaded is not None:
-#     df = pd.read_excel(uploaded)  # Load the Excel file into a DataFrame
-#     check_activiteit(df)  # Pass the DataFrame to the function
+# df = pd.read_excel(uploaded)  # Load the Excel file into a DataFrame
+# check_activiteit(df)  # Pass the DataFrame to the function

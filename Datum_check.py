@@ -3,10 +3,17 @@ import streamlit as st
 
 def datum_check(df):
     """
-    Function checks if the date is in the form %Y:%M:%D and the time in the form %H:%M:%S.
-    arg: df
-    output: warnings if column contains unwanted value (typo)
-    """  
+    Function checks if the date in 'starttijd datum' is of format %Y:%M:%D and the time in the form %H:%M:%S.
+    
+    args:
+    ----------- 
+    df: DataFrame;
+    Works with 'omloopplanning' xlsx file 
+    
+    Returns:
+    -----------
+    Succes or error-list containing rows with anomalies
+    """
     try:
         # Check if the starting date and time is in the correct form
         df['starttijd datum'] = pd.to_datetime(df['starttijd datum'], format='%Y/%M/%D /%H/%M/%S', errors='coerce') # 'errors=coerce' ignores incorrect dates

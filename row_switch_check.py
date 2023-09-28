@@ -6,11 +6,14 @@ from datetime import datetime, timedelta
 
 # Function
 def row_switch(df):
-    
     """
-    Checking if the time is in the correct order and if not, changing the data in a copied dataframe.
-    """    
+    Function checks whether the time is in the correct order and if not, changes the data in a copied dataframe.
     
+    args:
+    ----------- 
+    df: DataFrame;
+    Works with 'omloopplanning' xlsx file 
+    """
     time_1 = df['eindtijd']
     time_2 = df['eindtijd'].shift(periods = 2, fill_value = '00:00:00')
     time = pd.merge(time_1, time_2, left_index=True, right_index=True)
