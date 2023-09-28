@@ -22,6 +22,7 @@ st.write('Misschien ff een verhaaltje van hier kan je je planning checken :)')
 inputfile = st.file_uploader("Choose your completed planning excel file", type='xlsx') # (to check if the format is correct)
 if inputfile is not None:
     df = pd.read_excel(inputfile)
+    df = df.drop(['Unnamed: 0'], axis=1)
     formatcheck(df)
     check_activiteit(df)
     check_buslijn(df) 
@@ -30,11 +31,12 @@ if inputfile is not None:
     controleer_datatypes(df)
     check_time_no_difference(df)
     idle_time_fill_up(df)
+    print(df)  
     upload2 = st.file_uploader("Choose the excel file which contains the requirements for the planning", type='xlsx')
     if upload2 is not None:
         df2 = pd.read_excel(upload2, sheet_name='Dienstregeling')
         check_omloop(df2, df) 
 
 
-
+ 
 

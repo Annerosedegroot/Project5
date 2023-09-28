@@ -24,5 +24,5 @@ def formatcheck(df):
         st.error(f'The following columns are missing: {warnings}')
     
     for i in columnlist: #For loop to check if the order of the columns is correct.
-        if columnlist[columnlist.index(i)] != df.columns[columnlist.index(i)+1]:
+        if columnlist[columnlist.index(i)] != df.columns[columnlist.index(i)]:
             st.error(f"Order of columns is not as expected.")
