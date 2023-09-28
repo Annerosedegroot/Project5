@@ -12,11 +12,14 @@ from time_check import check_time_no_difference
 from idle_time_fill_up import idle_time_fill_up
 from Omloop_check import check_omloop
 
+
 # Set the title of the web application
-st.title("Project 5: Check the planning")
+st.title("Tool for checking a planning")
+st.divider()
 
 #Input file 'planning' and 'Connexxion data', and check if 'planning' meets requirements
-inputfile = st.file_uploader("Choose an Excel file", type='xlsx')
+st.write('Misschien ff een verhaaltje van hier kan je je planning checken :)')
+inputfile = st.file_uploader("Choose your completed planning excel file", type='xlsx') # (to check if the format is correct)
 if inputfile is not None:
     df = pd.read_excel(inputfile)
     formatcheck(df)
@@ -27,14 +30,11 @@ if inputfile is not None:
     controleer_datatypes(df)
     check_time_no_difference(df)
     idle_time_fill_up(df)
-    upload2 = st.file_uploader("Choose an Excel file 2", type='xlsx')
+    upload2 = st.file_uploader("Choose the excel file which contains the requirements for the planning", type='xlsx')
     if upload2 is not None:
         df2 = pd.read_excel(upload2, sheet_name='Dienstregeling')
         check_omloop(df2, df) 
-# Lay-out app: sidebar
-add_selectbox = st.sidebar.selectbox(
-    "How would you like to be contacted?",
-    ("Email", "Home phone", "Mobile phone")
-)
+
+
 
 
