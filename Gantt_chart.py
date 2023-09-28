@@ -25,4 +25,4 @@ def Gantt_chart(df):
                  tickmode = 'linear',
                  tick0 = 0,
                  dtick = 1)) #To correct the step size of the y axis
-    fig.show()  
+    return fig  
