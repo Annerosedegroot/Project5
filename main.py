@@ -1,5 +1,4 @@
 # import the necessary packages
-import math  # For mathematical functions
 import pandas as pd  # For working with data frames
 import streamlit as st  # For creating a web application
 from Format_excel_checks import formatcheck
@@ -30,8 +29,7 @@ if inputfile is not None:
     datum_check(df)
     controleer_datatypes(df)
     check_time_no_difference(df)
-    idle_time_fill_up(df)
-    print(df)  
+    idle_time_fill_up(df) 
     upload2 = st.file_uploader("Choose the excel file which contains the requirements for the planning", type='xlsx')
     if upload2 is not None:
         df2 = pd.read_excel(upload2, sheet_name='Dienstregeling')

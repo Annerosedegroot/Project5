@@ -4,8 +4,14 @@ import streamlit as st
 def datum_check(df):
     """
     Function checks if the date is in the form %Y:%M:%D and the time in the form %H:%M:%S.
-    arg: df
-    output: warnings if column contains unwanted value (typo)
+    
+    args: 
+    ------
+    df
+    
+    Returns: 
+    ------
+    warnings if column contains unwanted value (typo)
     """ 
     
     starttijd_datum = pd.to_datetime(df['starttijd datum'], format='%Y/%m/%d %H:%M:%S', exact=True)
