@@ -41,8 +41,8 @@ def check_omloop(omloop_df, planning_df):
         st.error(f'The following "Omloop-rijen" are not in the planning: {index}.')
         for error_row in errors:
             st.error(error_row)  # Display each error row
-    else:
-        st.success('The "omloopplanning" is correct.')
+    # else:
+    #     st.success('The "omloopplanning" is correct.')
         
 
 # Roep de functie aan om de controle uit te voeren (test)

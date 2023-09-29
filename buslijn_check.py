@@ -32,8 +32,8 @@ def check_buslijn(df):
     if warnings:
         st.warning(f'Warning: Found unexpected values in the column "buslijn" in the following rows: {warnings}.')
 
-    else:
-        st.success(f'No unexpected values found in the column "buslijn".')
+    # else:
+    #     st.success(f'No unexpected values found in the column "buslijn".')
 
 # uploaded = "omloop planning.xlsx" 
 

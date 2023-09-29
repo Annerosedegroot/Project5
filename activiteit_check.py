@@ -32,8 +32,8 @@ def check_activiteit(df):
     if warnings:
         st.warning(f'Warning: The following rows contain unexpected data: {warnings}.')
         
-    else:
-        st.success(f'No unexpected values found in the column "activiteit".')
+    # else:
+    #     st.success(f'No unexpected values found in the column "activiteit".')
 
 # uploaded = "omloop planning.xlsx"  # Replace with your Excel file path
 

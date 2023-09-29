@@ -14,14 +14,14 @@ def formatcheck(df):
     -----------
     Succes or error-list containing rows with anomalies
     """
-    warnings = []
+    errors = []
     columnlist = ["startlocatie","eindlocatie","starttijd","eindtijd","activiteit","buslijn","energieverbruik","starttijd datum","eindtijd datum","omloop nummer"] #List of all the column titles
     for i in columnlist: #For loop to check if there are any missing columns in the input file
         if i not in df.columns:
-            warnings.append(i)
+            errors.append(i)
         
-    if warnings:    
-        st.error(f'The following columns are missing: {warnings}')
+    if errors:    
+        st.error(f'Error: The following columns are missing: {errors}')
     
     for i in columnlist: #For loop to check if the order of the columns is correct.
         if columnlist[columnlist.index(i)] != df.columns[columnlist.index(i)]:
