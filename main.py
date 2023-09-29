@@ -13,12 +13,12 @@ from Omloop_check import check_omloop
 
 
 # Set the title of the web application
-st.title("Tool for checking a planning")
+st.title("Transdev Planning Checker")
 st.divider()
 
 #Input file 'planning' and 'Connexxion data', and check if 'planning' meets requirements
-st.write('Misschien ff een verhaaltje van hier kan je je planning checken :)')
-inputfile = st.file_uploader("Choose your completed planning excel file", type='xlsx') # (to check if the format is correct)
+st.write('This tool is able to check circulation plannings for buslines 400 and 401 located in Eindhoven, the Netherlands.')
+inputfile = st.file_uploader("Choose your completed circulation planning excel file", type='xlsx') # (to check if the format is correct)
 if inputfile is not None:
     df = pd.read_excel(inputfile)
     df = df.drop(['Unnamed: 0'], axis=1)
