@@ -30,10 +30,14 @@ if inputfile is not None:
     controleer_datatypes(df)
     check_time_no_difference(df)
     idle_time_fill_up(df) 
+    if not warnings:            # Werkt niet
+        if not errors:
+            st.success(f'The file is correct')
     upload2 = st.file_uploader("Choose the excel file which contains the requirements for the planning", type='xlsx')
     if upload2 is not None:
         df2 = pd.read_excel(upload2, sheet_name='Dienstregeling')
         check_omloop(df2, df) 
+
 
 
  
