@@ -28,7 +28,7 @@ if inputfile is not None:
     omloopnummer(df)
     datum_check(df)
     controleer_datatypes(df)
-    check_time_no_difference(df)
+    check_time_no_difference(df)   # Return df2
     idle_time_fill_up(df) 
     if not warnings:            # Werkt niet
         if not errors:
