@@ -34,14 +34,14 @@ if inputfile is not None:
     idle_time_fill_up(df) 
     time_backwards(df, issues)
     if not issues:
-        st.success(f'The file is correct.')
+        st.success(f'Success: The file is correct.')
     upload2 = st.file_uploader("Choose the excel file which contains the requirements for the planning", type='xlsx')
     issues2 = []
     if upload2 is not None:
         df2 = pd.read_excel(upload2, sheet_name='Dienstregeling')
         check_omloop(df2, df, issues2) 
         if not issues2:
-            st.success(f'The file is correct.')
+            st.success(f'Success: The file is correct.')
 
 
 
