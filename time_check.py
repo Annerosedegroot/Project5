@@ -46,16 +46,16 @@ def check_time_no_difference(df):
 
             
 
-    df2 = df.drop(warnings)
+    df = df.drop(warnings)
 
-    return df2
+    return df
         
 
 
 
 # Test
-df = pd.read_excel("omloop planning.xlsx")  # Replace with your Excel file path
+# df = pd.read_excel("omloop planning.xlsx")  # Replace with your Excel file path
 
 # if uploaded is not None:
 #     df = uploaded)  # Load the Excel file into a DataFrame
-print(check_time_no_difference(df))
+# print(check_time_no_difference(df))

@@ -6,7 +6,7 @@ from row_switch_check import row_switch
 
 
 # Function
-def time_overlap_check(df):
+def time_overlap_check(df, issues):
     """
     Function checks whether the bus is arriving before leaving for the next 'omloop' route.
     
@@ -29,7 +29,7 @@ def time_overlap_check(df):
 
     
     # Create a list where warnings will be stored if the time difference = 0
-    warnings = []
+    errors = []
     
     # A forloop per row
     for index, row in time.iterrows():
@@ -46,15 +46,16 @@ def time_overlap_check(df):
         
         # Check if the difference between start and end is 0
         if difference != no_difference:
-            warnings.append(index)
+            errors.append(index)
             
-    if warnings:
-        st.warning(f'The time is incorrect in the following rows: {index}')
+    if errors:
+        issues.append(1)
+        st.error(f'Error: The time is incorrect in the following rows: {errors}')
     
     # Make excel file of copied dataframe to check
-    df_copy.to_excel("omloop planning test.xlsx")
+    # df_copy.to_excel("omloop planning test.xlsx")
     
-    return df_copy
+    return df_copy, issues
         
 
 

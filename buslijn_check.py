@@ -1,7 +1,7 @@
 import pandas as pd
 import streamlit as st
 
-def check_buslijn(df):
+def check_buslijn(df, issues):
     """
     Function checks whether all variables in column 'buslijn' are either 400, 401 or empty.
     
@@ -30,7 +30,11 @@ def check_buslijn(df):
 
     # Display warnings in Streamlit these need to go in the list with all other wanring sand errors generated from the data/
     if warnings:
+        issues.append(1)
         st.warning(f'Warning: Found unexpected values in the column "buslijn" in the following rows: {warnings}.')
+        
+    
+    return issues
 
     # else:
     #     st.success(f'No unexpected values found in the column "buslijn".')
