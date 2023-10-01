@@ -17,6 +17,8 @@ def check_time_no_difference(df):
     -----------
     Succes or error-list containing rows with anomalies
     """ 
+    
+    # df2 = df.copy()
     # Make a dataframe from the starttijd and eindtijd only and call it time
     starting_time = df['starttijd']
     ending_time = df['eindtijd']
@@ -40,22 +42,20 @@ def check_time_no_difference(df):
         
         # Check if the difference between start and end is 0
         if difference == no_difference:
-            warnings.append(index+2)
-            # warnings.append(f"Row {index}: Unexpected value in 'buslijn' column: {time}")
+            warnings.append(index)
+
             
-    if warnings:
-        # If the difference is 0, create a warning
-        st.warning(f'In the following rows {warnings}, the time difference is 0, meaning the bus does not drive')
-        
-    else:
-        st.success(f'No unexpected idle time')
+
+    df = df.drop(warnings)
+
+    return df
         
 
 
 
 # Test
-#df = pd.read_excel("omloop planning.xlsx")  # Replace with your Excel file path
+# df = pd.read_excel("omloop planning.xlsx")  # Replace with your Excel file path
 
 # if uploaded is not None:
 #     df = uploaded)  # Load the Excel file into a DataFrame
-#print(check_time_no_difference(df))
+# print(check_time_no_difference(df))

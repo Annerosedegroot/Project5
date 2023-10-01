@@ -1,7 +1,7 @@
 import pandas as pd
 import streamlit as st
 
-def check_activiteit(df):
+def check_activiteit(df, issues):
     """
     Function checks if 'activiteit' column solely contains 'idle', 'materiaal rit', 'dienst rit' or 'opladen'.
     
@@ -30,10 +30,14 @@ def check_activiteit(df):
 
     # Display warnings in Streamlit
     if warnings:
+        issues.append(1)
         st.warning(f'Warning: The following rows contain unexpected data: {warnings}.')
         
-    else:
-        st.success(f'No unexpected values found in the column "activiteit".')
+    
+    return issues
+        
+    # else:
+    #     st.success(f'No unexpected values found in the column "activiteit".')
 
 # uploaded = "omloop planning.xlsx"  # Replace with your Excel file path
 

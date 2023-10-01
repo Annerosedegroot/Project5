@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 
 
 # Function
-def time_backwards(df):
+def time_backwards(df, issues):
     """
     Function checks Check whether bus is arriving before leaving to drive the route according to planning.
     
@@ -26,7 +26,7 @@ def time_backwards(df):
     print(time)
     
     # Create a list where warnings will be stored if the time difference = 0
-    warnings = []
+    errors = []
     
     # A forloop per row
     for index, row in time.iterrows():
@@ -44,11 +44,14 @@ def time_backwards(df):
         
         # Check if the difference between start and end is less than 0
         if difference < no_difference:
-            warnings.append(index)
+            errors.append(index)
             
     # Create error if needed
-    if warnings:
-        st.error(f'In the following rows, the bus arrives at the destination before it has left the starting point: {warnings}')
+    if errors:
+        issues.append(1)
+        st.error(f'Error: In the following rows, the bus arrives at the destination before it has left the starting point: {errors}')
+        
+    return issues
 
 
 
@@ -59,8 +62,8 @@ def time_backwards(df):
 
 # Test
 
-df= pd.read_excel('omloop planning.xlsx')
-print(time_backwards(df))
+# df= pd.read_excel('omloop planning.xlsx')
+# print(time_backwards(df))
 
 
 

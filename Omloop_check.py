@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 
 
-def check_omloop(omloop_df, planning_df):
+def check_omloop(omloop_df, planning_df, issues2):
     """
     Function checks whether 'omloopplanning' meets the required times for the set bus-planning 
     
@@ -39,10 +39,15 @@ def check_omloop(omloop_df, planning_df):
     
     if errors:
         st.error(f'The following "Omloop-rijen" are not in the planning: {index}.')
-        for error_row in errors:
-            st.error(error_row)  # Display each error row
-    else:
-        st.success('The "omloopplanning" is correct.')
+        issues2.append(1)
+        
+    return issues2
+
+        # for error_row in errors:
+        #     st.error(error_row)  # Display each error row
+    # else:
+    #     st.success('The "omloopplanning" is correct.')
+    
         
 
 # Roep de functie aan om de controle uit te voeren (test)

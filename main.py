@@ -41,9 +41,8 @@ if inputfile is not None:
     issues2 = []
     if upload2 is not None:
         df2 = pd.read_excel(upload2, sheet_name='Dienstregeling')
-        check_omloop(df2, df, issues2) 
-        if not issues2:
-            st.success(f'Success: The file is correct.')
+        check_omloop(df2, df) 
+
 
 
 
