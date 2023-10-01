@@ -31,17 +31,19 @@ if inputfile is not None:
     datum_check(df)
     controleer_datatypes(df)   # Weet niet hoe ik hier success kan krijgen
     check_time_no_difference(df)
-    idle_time_fill_up(df) 
+    df = idle_time_fill_up(df)
     time_backwards(df, issues)
     sum_idle(df)
     sum_verbruik(df)
+    st.session_state['df'] = df
     if not issues:
         st.success(f'Success: The file is correct.')
     upload2 = st.file_uploader("Choose the excel file which contains the requirements for the planning", type='xlsx')
     issues2 = []
     if upload2 is not None:
         df2 = pd.read_excel(upload2, sheet_name='Dienstregeling')
-        check_omloop(df2, df) 
+        #check_omloop(df2, df) 
+
 
 
 

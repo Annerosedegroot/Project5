@@ -18,3 +18,4 @@ def idle_time_fill_up(df):
         o = i+.5
         df.loc[o] = df.iloc[i,0], df.iloc[i,1], df.iloc[i,3], df.iloc[i+1,3], 'idle', np.NaN, 0.0100, df.iloc[i,9], df.iloc[i+1,8], df.iloc[i,9] #Fills up the empty slot with the categorie idle time including the belonging properties. 
     df = df.sort_index().reset_index(drop=True)
+    return df
