@@ -11,7 +11,7 @@ from time_check import check_time_no_difference
 from idle_time_fill_up import idle_time_fill_up
 from Omloop_check import check_omloop
 from time_check_backwards import time_backwards
-from KPI import sum_idle
+from KPI import sum_idle, sum_verbruik
 
 # Set the title of the web application
 st.title("Transdev Planning Checker")
@@ -34,6 +34,7 @@ if inputfile is not None:
     idle_time_fill_up(df) 
     time_backwards(df, issues)
     sum_idle(df)
+    sum_verbruik(df)
     if not issues:
         st.success(f'Success: The file is correct.')
     upload2 = st.file_uploader("Choose the excel file which contains the requirements for the planning", type='xlsx')
