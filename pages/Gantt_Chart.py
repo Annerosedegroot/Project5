@@ -26,30 +26,17 @@ def Gantt_chart(df):
                  tick0 = 0,
                  dtick = 1)) #To correct the step size of the y axis
     return fig  
-def idle_time_fill_up(df):
-    """
-    Function checks if there is a unfilled time slot, so a time slot that has not been given a categorie such as idle. 
-    If a time slot is not given any categorie it will give it the categorie idle with the belonging properties.
-    
-    args:
-    ----------- 
-    df: DataFrame;
-    Works with 'omloopplanning' xlsx file 
-    """
-    IndexUnfilledIdleTimes = [] 
-    for i in range(1, len(df.index)-1):
-        if df.iloc[i,3] != df.iloc[i+1,2] and df.iloc[i,8] == df.iloc[i+1,9]: #Checks if there is a empty timeslot in a busline. 
-            IndexUnfilledIdleTimes.append(i) #Appends the index of a empty timeslot into a list.
 
-    for i in IndexUnfilledIdleTimes:
-        o = i+.5
-        df.loc[o] = df.iloc[i,0], df.iloc[i,1], df.iloc[i,3], df.iloc[i+1,3], 'idle', np.NaN, 0.0100, df.iloc[i,9], df.iloc[i+1,8], df.iloc[i,9] #Fills up the empty slot with the categorie idle time including the belonging properties. 
-    df = df.sort_index().reset_index(drop=True)
-    return df
-st.title('This is page 2')
+st.title('Gantt charts')
 
 df = st.session_state['df']
+df_new = st.session_state['df_new']
 st.divider()
-df = idle_time_fill_up(df)
-fig = Gantt_chart(df)
-st.plotly_chart(fig)
+
+  
+fig1 = Gantt_chart(df)
+fig2 = Gantt_chart(df_new)
+st.subheader('The Gantt chart made out of the raw input data:')
+st.plotly_chart(fig1)
+st.subheader('The Gantt chart when the raw data is changed by filling up the blank spaces with idle time:')
+st.plotly_chart(fig2)
