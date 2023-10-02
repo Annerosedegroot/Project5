@@ -20,11 +20,9 @@ def time_overlap_check(df, issues):
     Is there a return here or was this just for testing purposes?
     """     
     
-    # Create copy to check before changing original dataframe
-    df_copy = row_switch(df)
     
-    starting_time = df_copy['starttijd']
-    ending_time = df_copy['eindtijd'].shift(periods = 1, fill_value = '00:00:00')
+    starting_time = df['starttijd']
+    ending_time = df['eindtijd'].shift(periods = 1, fill_value = '00:00:00')
     time = pd.merge(starting_time, ending_time, left_index=True, right_index=True)
 
     
@@ -55,7 +53,7 @@ def time_overlap_check(df, issues):
     # Make excel file of copied dataframe to check
     # df_copy.to_excel("omloop planning test.xlsx")
     
-    return df_copy, issues
+    return df, issues
         
 
 
