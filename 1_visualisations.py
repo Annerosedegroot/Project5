@@ -1,8 +1,6 @@
 import streamlit as st
 
-from Gantt_chart import Gantt_chart
-
-
+from Gantt_chart_Function import Gantt_chart
 
 st.set_page_config(page_title="Visualistations", page_icon="📈")
 st.markdown("# Plotting Demo")

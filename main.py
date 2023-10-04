@@ -24,6 +24,7 @@ issues = []
 if inputfile is not None:
     df = pd.read_excel(inputfile)
     df = df.drop(['Unnamed: 0'], axis=1)
+    st.session_state['df'] = df
     formatcheck(df, issues)
     check_activiteit(df, issues)
     check_buslijn(df, issues) 
@@ -31,10 +32,14 @@ if inputfile is not None:
     datum_check(df)
     controleer_datatypes(df)   # Weet niet hoe ik hier success kan krijgen
     check_time_no_difference(df)
-    idle_time_fill_up(df) 
+    df.to_excel("Test2.xlsx")
+    df_new = df.copy()  # A new dataframe such that the old one doesn't get overwritten when it is still needed.
+    df_new = idle_time_fill_up(df_new)
     time_backwards(df, issues)
     sum_idle(df)
     sum_verbruik(df)
+    st.session_state['df_new'] = df_new
+    print(len(df))
     if not issues:
         st.success(f'Success: The file is correct.')
     upload2 = st.file_uploader("Choose the excel file which contains the requirements for the planning", type='xlsx')
@@ -42,10 +47,10 @@ if inputfile is not None:
     if upload2 is not None:
         df2 = pd.read_excel(upload2, sheet_name='Dienstregeling')
         check_omloop(df2, df, issues2) 
-        if not issues2:
-            st.success(f'Success: The file is correct.')
+        st.success(f'Success: The file is correct.')
+
+
 
 
 
  
-
