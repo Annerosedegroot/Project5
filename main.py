@@ -33,7 +33,7 @@ if inputfile is not None:
     datum_check(df)
     controleer_datatypes(df)   # Weet niet hoe ik hier success kan krijgen
     check_time_no_difference(df)
-    df.to_excel("Test2.xlsx")
+    #df.to_excel("Test2.xlsx")
     df_new = df.copy()  # A new dataframe such that the old one doesn't get overwritten when it is still needed.
     df_new = idle_time_fill_up(df_new)
     time_backwards(df, issues)
