@@ -12,6 +12,7 @@ from idle_time_fill_up import idle_time_fill_up
 from Omloop_check import check_omloop
 from time_check_backwards import time_backwards
 from KPI import som_idle, sum_verbruik
+from oplaadtijd import oplaadtijd
 
 # Set the title of the web application
 st.title("Transdev Planning Checker")
