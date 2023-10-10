@@ -12,6 +12,7 @@ from idle_time_fill_up import idle_time_fill_up
 from Omloop_check import check_omloop
 from time_check_backwards import time_backwards
 from KPI import sum_idle, sum_verbruik
+from oplaadtijd import oplaadtijd
 
 # Set the title of the web application
 st.title("Transdev Planning Checker")
@@ -38,6 +39,7 @@ if inputfile is not None:
     time_backwards(df, issues)
     sum_idle(df)
     sum_verbruik(df)
+    oplaadtijd(df, issues)
     st.session_state['df_new'] = df_new
     print(len(df))
     if not issues:
