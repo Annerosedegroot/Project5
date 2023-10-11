@@ -54,7 +54,7 @@ def kpis(df):
     return print(f'total kwh usage is {totaal_verbruik}\
                  Totaal idle tijd in minuten: {total_idle_minutes} minuten')
     
-
+df = pd.read_excel('omloop planning.xlsx')
 
 # Set the title of the web application
 st.title("Transdev Planning Checker")
@@ -66,10 +66,16 @@ inputfile = st.file_uploader("Choose your completed circulation planning excel f
 issues = []
 if inputfile is not None:
     df = pd.read_excel(inputfile)
-    df = df.drop(['Unnamed: 0'], axis=1)
-
-    st.session_state['df'] = df
-    checks(df, issues)
+    columnnames = df.columns.to_list()
+    if 'Unnamed: 0' in columnnames:
+        df = df.drop(['Unnamed: 0'], axis=1)
+        st.session_state['df'] = df
+        checks(df, issues)
+        
+    else:
+        checks(df, issues)
+        st.session_state['df'] = df
+    
 
 
     #df.to_excel("Test2.xlsx")
