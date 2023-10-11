@@ -11,8 +11,50 @@ from time_check import check_time_no_difference
 from idle_time_fill_up import idle_time_fill_up
 from Omloop_check import check_omloop
 from time_check_backwards import time_backwards
-from KPI import som_idle, sum_verbruik
+from KPI import sum_idle, sum_verbruik
 from oplaadtijd import oplaadtijd
+
+def checks(df, issues):
+    """
+    Function which contains all the functions to check the circulation planning
+    
+    Arg:
+    -------
+    df, issues
+    
+    Returns:
+    ---------
+    The errors and warning found if there are mistakes in the circulation planning
+    """
+    formatcheck(df, issues)
+    check_activiteit(df, issues)
+    check_buslijn(df, issues)
+    omloopnummer(df, issues)
+    datum_check(df)
+    controleer_datatypes(df)   # Weet niet hoe ik hier success kan krijgen
+    check_time_no_difference(df)
+    time_backwards(df, issues)
+    oplaadtijd(df, issues)
+    return issues
+
+def kpis(df):
+    """
+    Function which contains all the functions for the KPI's
+
+    Arg:
+    -------
+    df
+    
+    Returns:
+    ---------
+    Total energy usage and the total minutes idle time
+    """
+    total_idle_minutes = sum_idle(df)
+    totaal_verbruik = sum_verbruik(df)
+    return print(f'total kwh usage is {totaal_verbruik}\
+                 Totaal idle tijd in minuten: {total_idle_minutes} minuten')
+    
+
 
 # Set the title of the web application
 st.title("Transdev Planning Checker")
@@ -25,23 +67,18 @@ issues = []
 if inputfile is not None:
     df = pd.read_excel(inputfile)
     df = df.drop(['Unnamed: 0'], axis=1)
+
     st.session_state['df'] = df
-    formatcheck(df, issues)
-    check_activiteit(df, issues)
-    check_buslijn(df, issues) 
-    omloopnummer(df, issues)
-    datum_check(df)
-    controleer_datatypes(df)   # Weet niet hoe ik hier success kan krijgen
-    check_time_no_difference(df)
+    checks(df, issues)
+
+
     #df.to_excel("Test2.xlsx")
     df_new = df.copy()  # A new dataframe such that the old one doesn't get overwritten when it is still needed.
     df_new = idle_time_fill_up(df_new)
-    time_backwards(df, issues)
-    som_idle(df)
-    sum_verbruik(df)
-    oplaadtijd(df, issues)
+
     st.session_state['df_new'] = df_new
-    print(len(df))
+    
+    kpis(df)
     if not issues:
         st.success(f'Success: The file is correct.')
     upload2 = st.file_uploader("Choose the excel file which contains the requirements for the planning", type='xlsx')
@@ -52,7 +89,7 @@ if inputfile is not None:
         st.success(f'Success: The file is correct.')
 
 
-
+#Reminder Teun Datum checks schrijft alle tijden uit!!!
 
 
  
