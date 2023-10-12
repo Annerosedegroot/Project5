@@ -1,5 +1,6 @@
 import pandas as pd
 from datetime import datetime, timedelta
+import streamlit as st
 
 def sum_verbruik(df):
     """
@@ -14,7 +15,8 @@ def sum_verbruik(df):
     sum of all energyusage in planning
     """
     totaal_verbruik = df['energieverbruik'].sum()
-    return print(f'total kwh usage is {totaal_verbruik}')
+    st.metric('Total energy usage in current uploaded planning', totaal_verbruik)
+    return 
 
 def sum_idle(df):
     times = []
@@ -42,9 +44,10 @@ def sum_idle(df):
 
     # Sommeer de waarden in de 'tijd' kolom om de totale idle time in minuten te krijgen
     total_idle_minutes = idle_rows['tijd'].sum()  # Verschil in minuten
+    st.metric('Total idle time in current uploaded planning', total_idle_minutes)
 
     return print(f'Totaal idle tijd in minuten: {total_idle_minutes} minuten')
 
 
-df = pd.read_excel('omloop planning.xlsx')
-sum_verbruik(df)
+# df = pd.read_excel('omloop planning.xlsx')
+# sum_verbruik(df)

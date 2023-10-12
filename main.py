@@ -36,23 +36,6 @@ def checks(df, issues):
     time_backwards(df, issues)
     oplaadtijd(df, issues)
     return issues
-
-def kpis(df):
-    """
-    Function which contains all the functions for the KPI's
-
-    Arg:
-    -------
-    df
-    
-    Returns:
-    ---------
-    Total energy usage and the total minutes idle time
-    """
-    total_idle_minutes = sum_idle(df)
-    totaal_verbruik = sum_verbruik(df)
-    return print(f'total kwh usage is {totaal_verbruik}\
-                 Totaal idle tijd in minuten: {total_idle_minutes} minuten')
     
 df = pd.read_excel('omloop planning.xlsx')
 
@@ -84,7 +67,6 @@ if inputfile is not None:
 
     st.session_state['df_new'] = df_new
     
-    kpis(df)
     if not issues:
         st.success(f'Success: The file is correct.')
     upload2 = st.file_uploader("Choose the excel file which contains the requirements for the planning", type='xlsx')
