@@ -2,6 +2,7 @@ import streamlit as st  # For creating a web application
 import pandas as pd
 from datetime import datetime, timedelta
 import streamlit as st
+import numpy as np
 
 def sum_verbruik(df):
     """
@@ -16,8 +17,8 @@ def sum_verbruik(df):
     sum of all energyusage in planning
     """
     totaal_verbruik = df['energieverbruik'].sum()
-    st.metric('Total energy usage in current uploaded planning', totaal_verbruik)
-    return 
+
+    return totaal_verbruik
 
 def sum_idle(df):
     times = []
@@ -45,9 +46,8 @@ def sum_idle(df):
 
     # Sommeer de waarden in de 'tijd' kolom om de totale idle time in minuten te krijgen
     total_idle_minutes = idle_rows['tijd'].sum()  # Verschil in minuten
-    st.metric('Total idle time in current uploaded planning', total_idle_minutes)
 
-    return print(f'Totaal idle tijd in minuten: {total_idle_minutes} minuten')
+    return total_idle_minutes
 
 def kpis(df):
     """
@@ -63,10 +63,13 @@ def kpis(df):
     """
     total_idle_minutes = sum_idle(df)
     totaal_verbruik = sum_verbruik(df)
-    return print(f'total kwh usage is {totaal_verbruik}\
-                 Totaal idle tijd in minuten: {total_idle_minutes} minuten')
+    return totaal_verbruik, total_idle_minutes
 
 st.title('KPI metrics')
 st.divider()
 df = st.session_state['df']
-kpis(df)
+totaal_verbruik, totaal_idle = kpis(df)
+col1, col2 = st.columns(2)
+col1.metric('Total energy usage in current uploaded planning', totaal_verbruik)
+col2.metric('Total idle time in current uploaded planning', totaal_idle)
+
