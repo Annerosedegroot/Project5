@@ -13,6 +13,7 @@ from Omloop_check import check_omloop
 from time_check_backwards import time_backwards
 from KPI import sum_idle, sum_verbruik
 from oplaadtijd import oplaadtijd
+from SOC_check import SOC_check
 
 def checks(df, issues):
     """
@@ -35,6 +36,7 @@ def checks(df, issues):
     check_time_no_difference(df)
     time_backwards(df, issues)
     oplaadtijd(df, issues)
+    SOC_check(df)
     return issues
     
 # df = pd.read_excel('omloop planning.xlsx')
@@ -77,8 +79,6 @@ st.divider()
 #         st.success(f'Success: The file is correct.')
 
 
-#Reminder Teun Datum checks schrijft alle tijden uit!!!
-
 #hieronder is de code voor de dropboxen langs elkaar, de oude staat nog gewoon hierboven gecomment.
 #Input file 'planning' and 'Connexxion data', and check if 'planning' meets requirements
 st.write('This tool is able to check circulation plannings for buslines 400 and 401 located in Eindhoven, the Netherlands.')
@@ -99,6 +99,7 @@ if inputfile is not None:
         st.session_state['df'] = df
     
     #df.to_excel("Test2.xlsx")
+    df = df.drop('accu', axis=1) # Deletes the column accu which is added in the SOC_check
     df_new = df.copy()  # A new dataframe such that the old one doesn't get overwritten when it is still needed.
     df_new = idle_time_fill_up(df_new)
 
@@ -113,6 +114,10 @@ if inputfile2 is not None:
     check_omloop(df2, df, issues2) 
     st.success(f'Success: The file is correct.')
 
+
+
+#Reminder Teun Datum checks schrijft alle tijden uit!!!
+#Reminder Teun welk data frame te pakken voor SOC df of df_new!!
 
 
  
