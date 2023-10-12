@@ -1,0 +1,17 @@
+Activiteit = Activity
+
+Dienst rit = A tour/drive in which the bus transports passengers (in minutes).
+
+Materiaal rit = Any tour/drive in which the bus does not transport passengers (in minutes).
+
+Idle (time) = The amount of time in minutes a bus is not in use.
+
+Opladen = Charging the battery of the bus (in minutes).
+
+
+
+
+KPI's berekeningen
+Battery use = All the ... summed up together (in kWh).
+Total idle time = All the idle time thingies summed up together (in minutes).
+

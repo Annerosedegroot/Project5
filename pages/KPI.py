@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 import streamlit as st
 import numpy as np
 
-def sum_verbruik(df):
+def sum_verbruik(df): 
     """
     Function calculates total verbruik in given planning
     
@@ -16,7 +16,8 @@ def sum_verbruik(df):
     ---------
     sum of all energyusage in planning
     """
-    totaal_verbruik = df['energieverbruik'].sum()
+    
+    totaal_verbruik = df[df['energieverbruik'] > 0]['energieverbruik'].sum()
 
     return totaal_verbruik
 
