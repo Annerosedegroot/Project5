@@ -37,15 +37,54 @@ def checks(df, issues):
     oplaadtijd(df, issues)
     return issues
     
-df = pd.read_excel('omloop planning.xlsx')
+# df = pd.read_excel('omloop planning.xlsx')
 
 # Set the title of the web application
 st.title("Transdev Planning Checker")
 st.divider()
 
 #Input file 'planning' and 'Connexxion data', and check if 'planning' meets requirements
+# st.write('This tool is able to check circulation plannings for buslines 400 and 401 located in Eindhoven, the Netherlands.')
+# inputfile = st.file_uploader("Choose your completed circulation planning excel file", type='xlsx') # (to check if the format is correct)
+# issues = []
+# if inputfile is not None:
+#     df = pd.read_excel(inputfile)
+#     columnnames = df.columns.to_list()
+#     if 'Unnamed: 0' in columnnames:
+#         df = df.drop(['Unnamed: 0'], axis=1)
+#         st.session_state['df'] = df
+#         checks(df, issues)
+        
+#     else:
+#         checks(df, issues)
+#         st.session_state['df'] = df
+    
+
+
+#     #df.to_excel("Test2.xlsx")
+#     df_new = df.copy()  # A new dataframe such that the old one doesn't get overwritten when it is still needed.
+#     df_new = idle_time_fill_up(df_new)
+
+#     st.session_state['df_new'] = df_new
+    
+#     if not issues:
+#         st.success(f'Success: The file is correct.')
+#     upload2 = st.file_uploader("Choose the excel file which contains the requirements for the planning", type='xlsx')
+#     issues2 = []
+#     if upload2 is not None:
+#         df2 = pd.read_excel(upload2, sheet_name='Dienstregeling')
+#         check_omloop(df2, df, issues2) 
+#         st.success(f'Success: The file is correct.')
+
+
+#Reminder Teun Datum checks schrijft alle tijden uit!!!
+
+#hieronder is de code voor de dropboxen langs elkaar, de oude staat nog gewoon hierboven gecomment.
+#Input file 'planning' and 'Connexxion data', and check if 'planning' meets requirements
 st.write('This tool is able to check circulation plannings for buslines 400 and 401 located in Eindhoven, the Netherlands.')
-inputfile = st.file_uploader("Choose your completed circulation planning excel file", type='xlsx') # (to check if the format is correct)
+inputfile, inputfile2 = st.columns(2)
+inputfile = inputfile.file_uploader("Choose your completed circulation planning excel file", type='xlsx') # (to check if the format is correct)
+inputfile2 = inputfile2.file_uploader("Choose the excel file which contains the requirements", type='xlsx')
 issues = []
 if inputfile is not None:
     df = pd.read_excel(inputfile)
@@ -59,8 +98,6 @@ if inputfile is not None:
         checks(df, issues)
         st.session_state['df'] = df
     
-
-
     #df.to_excel("Test2.xlsx")
     df_new = df.copy()  # A new dataframe such that the old one doesn't get overwritten when it is still needed.
     df_new = idle_time_fill_up(df_new)
@@ -69,15 +106,13 @@ if inputfile is not None:
     
     if not issues:
         st.success(f'Success: The file is correct.')
-    upload2 = st.file_uploader("Choose the excel file which contains the requirements for the planning", type='xlsx')
-    issues2 = []
-    if upload2 is not None:
-        df2 = pd.read_excel(upload2, sheet_name='Dienstregeling')
-        check_omloop(df2, df, issues2) 
-        st.success(f'Success: The file is correct.')
+issues2 = []
+    
+if inputfile2 is not None:
+    df2 = pd.read_excel(inputfile2, sheet_name='Dienstregeling')
+    check_omloop(df2, df, issues2) 
+    st.success(f'Success: The file is correct.')
 
-
-#Reminder Teun Datum checks schrijft alle tijden uit!!!
 
 
  
