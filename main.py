@@ -106,13 +106,13 @@ if inputfile is not None:
     st.session_state['df_new'] = df_new
     
     if not issues:
-        st.success(f'Success: The file is correct.')
+        st.success(f'Success: The circulation planning file is correct.')
 issues2 = []
     
 if inputfile2 is not None:
     df2 = pd.read_excel(inputfile2, sheet_name='Dienstregeling')
     check_omloop(df2, df, issues2) 
-    st.success(f'Success: The file is correct.')
+    st.success(f'Success: The data file is correct.')
 
 
 
