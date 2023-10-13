@@ -83,6 +83,24 @@ st.divider()
 #Input file 'planning' and 'Connexxion data', and check if 'planning' meets requirements
 st.write('This tool is able to check circulation plannings for buslines 400 and 401 located in Eindhoven, the Netherlands.')
 inputfile, inputfile2 = st.columns(2)
+
+# css = '''
+# <style>
+# [data-testid = "inputfile"] div div:: {content: "document alsjeblieft"}
+
+# </style>
+# '''
+# st.markdown(css, unsafe_allow_html=True)
+# st.markdown(
+#     """
+#     <style>
+#         .css-9ycgxx {
+#             display: "hoi ik ben Teun";
+#         }
+#     <style>
+#     """, unsafe_allow_html=True)
+
+
 inputfile = inputfile.file_uploader("Choose your completed circulation planning excel file", type='xlsx') # (to check if the format is correct)
 inputfile2 = inputfile2.file_uploader("Choose the excel file which contains the requirements", type='xlsx')
 issues = []
