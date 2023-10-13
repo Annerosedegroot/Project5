@@ -19,7 +19,9 @@ Idle (time) = The amount of time in minutes a bus is not in use.
 
 Materiaal rit = Any ride/drive in which the bus does not transport passengers (in minutes).
 
-Omloop nummer = The number of the bus, which separates all the x amount of busses.
+Omloop nummer = Circulation number. The number of the bus, which separates all the x amount of busses.
+
+Omloop planning = Circulation planning. The planning of the busses.
 
 Opladen = Charging the battery of the bus (in minutes).
 
@@ -47,6 +49,8 @@ ehvapt = Eindhoven Airport
 ehvbst = Eindhoven Busstation
 
 ehvgr = Eindhoven Garage
+
+KPI = Key Performance Indicator.
 
 
 
