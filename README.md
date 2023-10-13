@@ -12,7 +12,6 @@ Features
 Requirements
 Usage Example
 Contributing
-License
 
 
 _Installation_
