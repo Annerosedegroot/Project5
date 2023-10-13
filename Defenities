@@ -1,17 +1,52 @@
+Definitions and translations:
 Activiteit = Activity
 
-Dienst rit = A tour/drive in which the bus transports passengers (in minutes).
+Buslijn = Bus line
 
-Materiaal rit = Any tour/drive in which the bus does not transport passengers (in minutes).
+Dienst rit = A ride/drive in which the bus transports passengers (in minutes).
+
+Eindlocatie = The final destination of a bus ride.
+
+Eindtijd = The time a bus reaches its final destination of a ride (24-hour clock).
+
+Eindtijd datum = The date and time a bus reaches its final destination of a ride (24-hour clock).
+
+Energieverbruik = Energy used by the bus (in kWh)
+
+Gantt chart = A graph that illustrates a schedule.
 
 Idle (time) = The amount of time in minutes a bus is not in use.
 
+Materiaal rit = Any ride/drive in which the bus does not transport passengers (in minutes).
+
+Omloop nummer = The number of the bus, which separates all the x amount of busses.
+
 Opladen = Charging the battery of the bus (in minutes).
 
+Startlocatie = The starting location of a bus ride.
+
+Starttijd = The time a bus ride starts (24-hour clock).
+
+Starttijd datum = The date and time a bus ride starts (24-hour clock).
 
 
 
-KPI's berekeningen
-Battery use = All the ... summed up together (in kWh).
-Total idle time = All the idle time thingies summed up together (in minutes).
+
+
+KPI calculations explained:
+Battery use = All the energy added up together (in kWh).
+
+Total idle time = All the idle time added up together (in minutes).
+
+
+
+
+Abbreviations:
+ehvapt = Eindhoven Airport
+
+ehvbst = Eindhoven Busstation
+
+ehvgr = Eindhoven Garage
+
+
 
