@@ -31,7 +31,7 @@ KPI.py:
 Calcultes KPI's energy usage and idle_time of the inputfile and displayes it in a clear manner. 
 
 Gantt_Chart.py:
-displaes the inputdata in a Gantchart, both as given and with the empty time-slots filled as 'idle time'.
+displaes the inputdata in a Gantt chart, both as given and with the empty time-slots filled as 'idle time'.
 
 Features
 List and describe the main features of your project, such as:
@@ -42,7 +42,7 @@ KPI calculation
 Gantt chart visualization
 ...
 _Requirements_
-Python 3.7+ (not Python 3.9, because the streamlit library will not work for about a month)
+Python 3.7+ (not Python 3.9, because the streamlit library will not work until November 2023)
 Streamlit
 Pandas
 Numpy
@@ -58,4 +58,4 @@ streamlit run app.py
 
 
 _Contributing_
-Project by Marilène Bos, Ella Coolen, Annerose de Groot, Teun Voesnek in on the instruction of Fontys university of applied science. If any bugs are found, please contact fontys@engineering.nl .....
+Project by Marilène Bos, Ella Coolen, Annerose de Groot, Teun Voesenek in on the instruction of Fontys university of applied science. If any bugs are found, please contact fontys@engineering.nl .....
