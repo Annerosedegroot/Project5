@@ -3,7 +3,7 @@ Activiteit = Activity.
 
 Buslijn = Bus line.
 
-Dienst rit = A ride/drive in which the bus transports passengers (in minutes).
+Dienst rit = A ride/drive in which the bus transports passengers (in minutes). ~'in minutes' weghalen? 
 
 Eindlocatie = The final destination of a bus ride.
 
@@ -15,17 +15,17 @@ Energieverbruik = Energy used by the bus (in kWh).
 
 Gantt chart = A graph that illustrates a schedule.
 
-Idle (time) = The amount of time a bus is not in use (in minutes).
+Idle (time) = The amount of time a bus is not in use (in minutes). ~'in minutes' weer weghalen?
 
-Key Performance Indicator = Quantifiable indicators to measure the success of the company.
+Key Performance Indicator = Quantifiable indicators to measure the success of the planning.
 
-Materiaal rit = Any ride/drive in which the bus does not transport passengers (in minutes).
+Materiaal rit = Any ride in which the bus does not transport passengers (in minutes). ~'in minutes' weghalen?
 
-Omloop nummer = Circulation number. The number of the bus, which separates all the x amount of busses.
+Omloop nummer = Circulation number. The number of the bus, which separates the x amount of busses.
 
 Omloop planning = Circulation planning. The planning of the busses.
 
-Opladen = Charging the battery of the bus (in minutes).
+Opladen = Charging the battery of the bus (in minutes). ~'in minutes' weghalen?
 
 Startlocatie = The starting location of a bus ride.
 
@@ -42,7 +42,7 @@ when it is first used (in percentages).
 
 
 KPI calculations explained:
-Battery use = All the energy added up together (in kWh).
+Battery use = All the energy used added up together (in kWh).
 
 Total idle time = All the idle time added up together (in minutes).
 
