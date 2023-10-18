@@ -3,7 +3,7 @@ Activiteit = Activity.
 
 Buslijn = Bus line.
 
-Dienst rit = A ride/drive in which the bus transports passengers (in minutes). ~'in minutes' weghalen? 
+Dienst rit = A ride/drive in which the bus transports passengers.
 
 Eindlocatie = The final destination of a bus ride.
 
@@ -15,17 +15,17 @@ Energieverbruik = Energy used by the bus (in kWh).
 
 Gantt chart = A graph that illustrates a schedule.
 
-Idle (time) = The amount of time a bus is not in use (in minutes). ~'in minutes' weer weghalen?
+Idle (time) = The amount of time a bus is not in use.
 
-Key Performance Indicator = Quantifiable indicators to measure the success of the planning.
+Key Performance Indicator = Quantifiable indicators to measure the quality of a planning.
 
-Materiaal rit = Any ride in which the bus does not transport passengers (in minutes). ~'in minutes' weghalen?
+Materiaal rit = Any ride in which the bus does not transport passengers.
 
 Omloop nummer = Circulation number. The number of the bus, which separates the x amount of busses.
 
 Omloop planning = Circulation planning. The planning of the busses.
 
-Opladen = Charging the battery of the bus (in minutes). ~'in minutes' weghalen?
+Opladen = Charging the battery of the bus.
 
 Startlocatie = The starting location of a bus ride.
 

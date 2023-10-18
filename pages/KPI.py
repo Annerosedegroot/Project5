@@ -71,6 +71,6 @@ st.divider()
 df = st.session_state['df']
 totaal_verbruik, totaal_idle = kpis(df)
 col1, col2 = st.columns(2)
-col1.metric('Total energy usage in current uploaded planning', totaal_verbruik)
-col2.metric('Total idle time in current uploaded planning', totaal_idle)
+col1.metric('Total energy usage in current uploaded planning', f'{totaal_verbruik:.4f}')
+col2.metric('Total idle time in current uploaded planning', f'{totaal_idle:.4f}')
 
