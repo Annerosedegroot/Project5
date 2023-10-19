@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.header("Help")
+st.header("Help page")
 st.subheader("Definitions and translations:")
 st.text(
 "Activiteit = Activity.\n"
