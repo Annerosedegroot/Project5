@@ -32,5 +32,9 @@ Calcultes KPI's energy usage and idle_time of the inputfile and displayes it in 
 Gantt_Chart.py:
 Displays the inputdata in a Gantt chart, both as given and with the empty time-slots filled as 'idle time'.
 
+_Assumptions_
+1. We have 20 electric busses at our disposal.
+2. The state of health (SOH) of all electric busses is minimal, namely 85%.
+
 _Contributing_
 Project by Marilène Bos, Ella Coolen, Annerose de Groot, and Teun Voesenek on the instruction of Fontys university of applied science. If any bugs are found, please contact engineeringeindhoven@fontys.nl. 
