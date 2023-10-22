@@ -2,6 +2,7 @@ import streamlit as st
 
 st.header("Help page")
 st.subheader("Definitions and translations:")
+st.markdown('To see the full descriptions, please scroll to the right.')
 st.text(
 "Activiteit = Activity.\n"
 "\n"
