@@ -81,7 +81,7 @@ st.divider()
 
 #hieronder is de code voor de dropboxen langs elkaar, de oude staat nog gewoon hierboven gecomment.
 #Input file 'planning' and 'Connexxion data', and check if 'planning' meets requirements
-st.write('This tool is able to check circulation plannings for buslines 400 and 401 located in Eindhoven, the Netherlands.')
+st.write('This tool is able to check circulation plannings for bus lines 400 and 401 located in Eindhoven, the Netherlands.')
 inputfile, inputfile2 = st.columns(2)
 
 # css = '''
