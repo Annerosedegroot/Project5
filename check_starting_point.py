@@ -19,7 +19,3 @@ def start_vs_end_point(df, issues):
         st.error(f'Error: The bus is leaving a station which is not the destination of the drive before. {errors}')
         
     return df, issues
-
-issues = 0
-df = pd.read_excel('omloop planning.xlsx')
-print(start_vs_end_point(df, issues))
