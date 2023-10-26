@@ -14,6 +14,7 @@ from time_check_backwards import time_backwards
 from KPI import sum_idle, sum_verbruik
 from oplaadtijd import oplaadtijd
 from SOC_check import SOC_check
+from check_starting_point import start_vs_end_point
 
 def checks(df, issues):
     """
@@ -37,6 +38,7 @@ def checks(df, issues):
     time_backwards(df, issues)
     oplaadtijd(df, issues)
     SOC_check(df)
+    start_vs_end_point(df, issues)
     return issues, df
     
 # df = pd.read_excel('omloop planning.xlsx')

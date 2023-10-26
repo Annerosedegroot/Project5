@@ -47,7 +47,7 @@ def check_time_no_difference(df):
             
 
     df = df.drop(warnings)
-    df.reset_index(drop=True)
+    df.reset_index(drop=True, inplace=True)
 
     return df
         
