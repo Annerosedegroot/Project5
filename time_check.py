@@ -31,8 +31,8 @@ def check_time_no_difference(df):
     for index, row in time.iterrows():
         
         # Change the string from the excel file into a time Python can read
-        t1 = datetime.strptime(row['starttijd'], "%H:%M:%S")
-        t2 = datetime.strptime(row['eindtijd'], "%H:%M:%S")
+        t1 = datetime.strptime(str(row['starttijd']), "%H:%M:%S")
+        t2 = datetime.strptime(str(row['eindtijd']), "%H:%M:%S")
         
         # Calculate the difference between the starting time and the ending time
         difference = t2 - t1

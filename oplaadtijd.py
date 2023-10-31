@@ -13,8 +13,8 @@ def oplaadtijd(df, issues):
     # print(tijd)
     
     for index, row in tijd.iterrows():
-        t1 = datetime.strptime(row['starttijd'], "%H:%M:%S")
-        t2 = datetime.strptime(row['eindtijd'], "%H:%M:%S")
+        t1 = datetime.strptime(str(row['starttijd']), "%H:%M:%S")
+        t2 = datetime.strptime(str(row['eindtijd']), "%H:%M:%S")
         
         difference = t2 - t1
         min_time = timedelta(hours=0, minutes=15, seconds=0)

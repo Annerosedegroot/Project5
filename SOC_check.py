@@ -31,7 +31,7 @@ def SOC_check(df):
     for i in range(len(df)):     
         if df.iloc[i,9] in omloopnummer:            
             if df.iloc[i, 4] == 'opladen':
-                delta_t = datetime.strptime(df.iloc[i,3], "%H:%M:%S") - datetime.strptime(df.iloc[i,2], "%H:%M:%S")
+                delta_t = datetime.strptime(str(df.iloc[i,3]), "%H:%M:%S") - datetime.strptime(str(df.iloc[i,2]), "%H:%M:%S")
                 charging_seconds = int(delta_t.total_seconds())
                 accu_charging_point = df.iloc[i-1,10]
                 charged = 0
